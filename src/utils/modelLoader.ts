@@ -1,4 +1,5 @@
 import * as tf from '@tensorflow/tfjs';
+import '@tensorflow/tfjs-layers';
 
 export class ModelLoader {
   private static instance: ModelLoader;
