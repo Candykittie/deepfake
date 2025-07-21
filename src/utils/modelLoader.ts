@@ -20,6 +20,7 @@ export class ModelLoader {
 
     try {
       // Ensure TensorFlow.js backend is fully ready before creating models
+      await tf.setBackend('webgl');
       await tf.ready();
       
       // Create a sophisticated CNN model for deepfake detection
