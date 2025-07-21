@@ -71,7 +71,7 @@ export class ModelLoader {
         tf.layers.dropout({ rate: 0.25 }),
 
         // Attention mechanism
-        tf.layers.globalAveragePooling2d(),
+        tf.layers.globalAveragePooling2d({ dataFormat: 'channelsLast' }),
         tf.layers.dense({ units: 512, activation: 'relu' }),
         tf.layers.dropout({ rate: 0.5 }),
         tf.layers.dense({ units: 256, activation: 'relu' }),
@@ -105,7 +105,7 @@ export class ModelLoader {
         tf.layers.conv2d({ filters: 32, kernelSize: 3, activation: 'relu', padding: 'same' }),
         tf.layers.maxPooling2d({ poolSize: 2 }),
         tf.layers.conv2d({ filters: 64, kernelSize: 3, activation: 'relu', padding: 'same' }),
-        tf.layers.globalAveragePooling2d(),
+        tf.layers.globalAveragePooling2d({ dataFormat: 'channelsLast' }),
         tf.layers.dense({ units: 128, activation: 'relu' }),
         tf.layers.dense({ units: 4, activation: 'sigmoid' }) // x, y, width, height
       ]
